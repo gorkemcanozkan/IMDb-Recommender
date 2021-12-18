@@ -234,8 +234,8 @@ elif choice=="Use Existing Model":
     if st.button("Predict"):
         holder=st.empty()
         holder.write("....Predicting....")
-        username = urllib.parse.quote_plus('gorkemozkan')
-        password = urllib.parse.quote_plus('4D@3c2b1a')
+        username = urllib.parse.quote_plus(os.environ.get("MONGO_USER_ID"))
+        password = urllib.parse.quote_plus(os.environ.get("MONGO_USER_PASS"))
         client = pymongo.MongoClient(
             f"mongodb+srv://{username}:{password}@cluster0.olkfo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
         db = client.get_database('imdb_data')  # DB Connection
