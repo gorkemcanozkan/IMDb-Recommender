@@ -3,11 +3,6 @@ pandas
 streamlit
 plotly.express
 scikit-learn
-time
-datetime
 selenium
-os
 pymongo
 dnspython
-urllib
-random
