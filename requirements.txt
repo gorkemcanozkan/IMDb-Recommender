@@ -3,7 +3,6 @@ pandas
 streamlit
 plotly.express
 scikit-learn
-pickle
 time
 datetime
 selenium
