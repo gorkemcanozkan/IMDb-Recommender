@@ -21,10 +21,11 @@ import random as rnd
 def prediction(imdb_link,mymodel,myscaler):
     # Opening a browser to scape data from IMDb.
     chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location=os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(r'C:\Users\gorozkan\chromedriver.exe',chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), chrome_options=chrome_options)
     driver.get(imdb_link)
     time.sleep(3)
 
@@ -210,8 +211,8 @@ if choice=="Train New Model":
                       'genres_keys': df["Genres"].unique().tolist(),
                       'genres_values': df["Genres_New"].unique().tolist()} #Creating the document
 
-        username = urllib.parse.quote_plus('gorkemozkan')
-        password = urllib.parse.quote_plus('4D@3c2b1a')
+        username = urllib.parse.quote_plus(os.environ.get("MONGO_USER_ID"))
+        password = urllib.parse.quote_plus(os.environ.get("MONGO_USER_PASS"))
         client = pymongo.MongoClient(
             f"mongodb+srv://{username}:{password}@cluster0.olkfo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
         db = client.get_database('imdb_data')  # DB Connection
