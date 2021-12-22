@@ -25,7 +25,7 @@ This project aims to help users learn if they will like a movie or not. The syst
 
 ![image](https://user-images.githubusercontent.com/71969715/146769436-4dfef938-83e0-421a-9b61-76ba17d1f9b8.png)
 
-4) Click on "Train" button. This is the machine learning part. The system learns from your previous data by using the information of the movies, and the rating that you gave.
+4) Click on "Train" button. This is the machine learning part. The system learns from your previous data by using the information of the movies, and the rating that you gave. The ML algorithm here is K-Nearest Neighbors. The system decides the best number of neighbors for each individual model.
 
 5) When the training is completed, the system will return the accuracy score, and also your unique key for the model. Your model and scaler gets saved to the database as binary strings, and you can query them by using your key anytime. Save this key to a notepad file for the prediction stage.
 
